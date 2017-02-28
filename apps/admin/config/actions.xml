@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  アクション設定ファイル（actions.xml）
+
+  actions.xmlは、アクションクラスに対して実行するメソッドを定義します。
+また、アプリケーションコンポーネントの設定も行えます。  
+
+  ※ 設定値などは下記URLを参照
+  http://syl.jp/document/configuration/actions.html
+-->
+<syl-actions xmlns="http://syl.jp/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://syl.jp/schema syl-actions.xsd">
+
+<action path="(.+)\.php"
+        method="execute{action}">
+</action>
+
+</syl-actions>

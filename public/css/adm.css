@@ -1,0 +1,171 @@
+#adm-container {
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+#adm-header {
+}
+
+#adm-content {
+  margin-bottom: 20px;
+}
+
+#adm-pankuzu {
+  text-align: right;
+  padding-right: 20px;
+}
+
+#adm-footer {
+  clear: both;
+  border-top: solid 1px #99AAFF;
+  text-align: left;
+  font-size: 83%;
+  padding: 10px 10px 5px 5px;
+}
+
+#adm-search {
+  margin-bottom: 20px;
+}
+
+.adm-search {
+  height: 100%;
+  margin-bottom: 8px;
+}
+
+/* 一覧のページリンク */
+.adm-pagelink {
+  text-align: right;
+  white-space: nowrap;
+  margin: 6px 10px 6px 0px;
+}
+
+
+div.adm-pagelink input,
+table.adm-list input,
+table.adm-detail input,
+table.adm-detail textarea,
+table.adm-detail select {
+  border: solid 1px #003366;
+  color:            #3B3B3B;
+  background-color: #FFFFFF;
+}
+
+table.adm-detail textarea {
+  width: 100%;
+}
+
+form {
+  margin: 0px;
+}
+
+/* 全画面の見出し */
+#adm-header h1 {
+  border: solid;
+  border-width: 0px 0px 1px 10px;
+  padding:      5px 5px 5px 10px;
+  border-color: #3366CC;
+  font-size:    120%;
+  color:        #000066;
+}
+
+#adm-content h2 {
+  border-bottom: dotted 1px #1647B7;
+  background: left center url("../images/icon_subtitle.gif") no-repeat;
+  padding:      5px 5px 5px 24px;
+  margin:       5px 5px 10px 0px;
+  font-size:    100%;
+  color:        #000066;
+}
+
+/* Indexの一覧 */
+dl.adm-index {
+  margin: 0px;
+}
+
+dl.adm-index dt {
+  font-weight: bold;
+  padding: 2px 16px;
+  margin-bottom: 10px;
+  background-color: #EFEFEF;
+}
+
+dl.adm-index dd {
+  padding: 0px 10px 16px 20px;
+  margin-left: 0px;
+}
+
+/* 一覧のテーブル */
+table.adm-list {
+  width:   100%;
+  padding: 0px;
+  margin:  0px 0px 10px 0px;
+  text-align: left; 
+}
+
+table.adm-list th {
+  background: #779CE4;
+  border:     solid 1px #779CE4;
+  padding:    4px;
+  margin:     3px;
+}
+
+table.adm-list th a:link,
+table.adm-list th a:visited,
+table.adm-list th a:active
+table.adm-list th a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+table.adm-list td {
+  background: #EDF3FF;
+  padding:    4px;
+  margin:     3px;
+}
+
+table.adm-list th.list_icon,
+table.adm-list td.list_icon {
+  width: 20px;
+  text-align: center;
+}
+
+/* 一覧のレコードの色 */
+table.adm-list tr.td1 td {
+  background-color: #EDF3FF;
+}
+
+table.adm-list tr.td2 td {
+  background-color: #DDE6F8;
+}
+
+/* 詳細のテーブル */
+table.adm-detail {
+  width:   100%;
+  padding: 3px;
+  margin:  3px;
+  text-align: left; 
+}
+
+table.adm-detail th {
+  color:       #FFFFFF;
+  background:  #779CE4;
+  border:      solid 1px #779CE4;
+  padding:     5px;
+  margin:      3px;
+  width:       15%;
+}
+
+table.adm-detail td {
+  background: #EDF3FF;
+  border:     solid 1px #A5C3F0;
+  padding:    5px;
+  margin:     3px;
+}
+
+.alert {
+  border: dotted 1px #CC0000;
+  background: left top url("../images/icon_alert.gif") no-repeat #FFFFCC;
+  padding:    14px 5px 14px 48px;
+  margin:     5px 5px 10px 5px;
+  color:      #CC0000;
+}

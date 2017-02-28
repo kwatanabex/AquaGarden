@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  フィルタ設定ファイル（filters.xml）
+
+  filters.xmlは、プロジェクト／個別アプリケーションで使用できるフィルタを設定します。
+フィルタは、アクションの前後とビュー（テンプレート表示）の前後のイベントとして定義し、
+一括して処理を挿入することができます。
+
+・アクション前フィルタ (preAction)<br />
+・アクション後フィルタ (postAction)<br />
+・ビュー表示前フィルタ (preRender)<br />
+・ビュー表示後フィルタ (postRender)<br />
+
+  ※ 設定値などは下記URLを参照
+  http://syl.jp/document/configuration/filters.html
+-->
+<syl-filters xmlns="http://syl.jp/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://syl.jp/schema syl-filters.xsd">
+</syl-filters>

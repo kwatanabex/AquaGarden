@@ -1,0 +1,191 @@
+* {
+  margin: auto;
+  padding: 0;
+}
+
+body {
+  color: #333366;
+  font-size: small;
+}
+
+form {
+  margin:  0;
+}
+
+ul {
+  list-style-type: none;
+  list-style-image: none;
+}
+
+h1 {
+  margin: 12px 20px;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  line-height: 130%;
+}
+
+p.headline {
+  padding: 6px 10px;
+  background-color: #EFEFEF;
+  margin-bottom: 10px;
+}
+
+#header {
+  height: 40px;
+  width: 100%;
+  background: url('../images/admin_header_bg.gif') repeat-x;
+}
+
+#header_logo {
+  height: 40px;
+  float: left;
+}
+
+#header_userinfo {
+  color: #333366;
+  height: 40px;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+}
+#header_userinfo a {
+  color: #333366;
+}
+
+#header_end {
+  clear: both;
+}
+
+
+#menu{
+  width: 100%;
+}
+
+#main {
+  width: 100%;
+  margin: 6px 0 20px 0;
+  padding: 0;
+}
+
+#main-left {
+  width: 200px;
+  border: 1px solid #CCCCCC;
+  float: left;
+}
+
+#main-contents {
+  /*margin-left: 206px;*/
+  margin-left: 4px;
+  margin-right: 4px;
+  width: auto;
+}
+
+#main-contents-navi {
+  color: #666666;
+  padding: 4px 8px;
+  border: 1px dotted #CCCCCC;
+  background-color: #EEEEEE;
+}
+
+#main-contents-body{
+}
+
+
+#main-end {
+  clear: left;
+}
+
+#footer {
+  text-align: center;
+  background: url('../images/admin_footer_bg.gif') repeat-x;
+  padding-top: 12px;
+}
+
+
+/*
+ * グローバルメニュー
+ */
+
+ul.global-menu {
+  margin: 0;
+}
+
+ul.global-menu li ul {
+  width: 100%;
+}
+
+ul.global-menu li ul li {
+  float: left;
+  height: 23px;
+}
+
+ul.global-menu li ul:after {
+  height: 0;
+  content: ".";
+  display: block;
+  visibility: hidden;
+  clear: left;
+}
+
+ul.global-menu li.row a {
+  color: #777777;
+  text-decoration: none;
+  padding: 4px 12px;
+  display: block;
+  position: relative;
+}
+
+ul.global-menu li.row a.current {
+  color: #333366;
+  background: url('../images/admin_menu_bga.gif') repeat-x;
+}
+
+/* row1 */
+ul.global-menu li.global-menu-row1 {
+  background: url('../images/admin_menu_bg1.gif') repeat-x;
+}
+
+ul.global-menu li.global-menu-row1 li.row a:hover {
+  color: #333366;
+}
+
+/* row2 */
+ul.global-menu li.global-menu-row2 {
+  background: url('../images/admin_menu_bg2.gif') repeat-x;
+}
+
+ul.global-menu li.global-menu-row2 li.row a:hover {
+  color: #333366;
+}
+
+/* row3 */
+ul.global-menu li.global-menu-row3 {
+  background: url('../images/admin_menu_bg3.gif') repeat-x;
+}
+
+ul.global-menu li.global-menu-row3 li.row a:hover {
+  color: #333366;
+}
+
+/* row4 */
+ul.global-menu li.global-menu-row4 {
+  background: url('../images/admin_menu_bg4.gif') repeat-x;
+}
+
+ul.global-menu li.global-menu-row4 li.row a:hover {
+  color: #333366;
+}
+
+/* row5 */
+ul.global-menu li.global-menu-row5 {
+  background: url('../images/admin_menu_bg5.gif') repeat-x;
+}
+
+ul.global-menu li.global-menu-row5 li.row a:hover {
+  color: #333366;
+}
+

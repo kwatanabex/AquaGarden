@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  プロジェクト定数設定ファイル（defines.xml）
+
+  defines.xml は、プロジェクト内で使用する定数を設定します。
+
+  例）
+  - defines.xml
+    <define name="EXAMPLE">test</define>
+  - プログラム側
+    echo EXAMPLE; // test
+
+  ※ 設定値などは下記URLを参照
+  http://syl.jp/document/configuration/defines.html
+-->
+<syl-defines xmlns="http://syl.jp/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://syl.jp/schema syl-defines.xsd">
+  <!-- アクションの基底クラス -->
+  <define name="SYL_ACTION_BASE_CLASS">App.Action</define>
+  <!--
+    URL遷移ルール
+      pathinfo  - PATHINFO環境変数からアクションを判定
+      parameter - パラメータからアクションを判定
+  -->
+  <define name="SYL_ROUTER_RULE">pathinfo</define>
+  <!-- URL上の拡張子 -->
+  <define name="SYL_ROUTER_URL_EXT">.html</define>
+  <!--
+    アクション値を SYL_ACTION_KEY 名のパラメータを受け付けるかのフラグ
+      0 - アクションパラメータからアクションを取得しない
+      1 - アクションパラメータの形式 [SYL_ACTION_KEY]_(action名)=(任意の値)でアクション名を取得
+      2 - アクションパラメータの形式 [SYL_ACTION_KEY]=(action名)でアクション名を取得
+      3 - 上記1と2が共に有効
+  -->
+  <define name="SYL_ROUTER_EXTRA_ACTION">2</define>
+
+  <!--
+    ログレベル
+    {SYL_LOG_(NONE|ERROR|WARN|NOTICE|INFO|DEBUG)}
+  -->
+  <define name="SYL_LOG">{SYL_LOG_DEBUG}</define>
+  <!--
+    ログファイル名
+      {YYYY} - 年に変換される
+      {MM}   - 月に変換される 
+      {DD}   - 日に変換される
+  -->
+  <define name="SYL_LOG_FILE">{SYL_PROJECT_DIR}/var/logs/{SYL_APP_NAME}/SyL_{YYYY}{MM}{DD}.log</define>
+
+  <!--
+    メール送信文字列
+      [dbtype]:path=[path];host=[hostname];port=[port]
+        default  - mail関数により送信
+        sendmail - sendmailコマンドで送信 （[path]任意）
+        smtp:    - SMTPサーバーを指定して送信 （[hostname]必須、[port]任意）
+  -->
+  <define name="SYL_MAIL_TYPE">default</define>
+  <!-- 管理者メールアドレス -->
+  <define name="SYL_MAIL_ADMIN_ADDRESS"></define>
+
+  <!--
+    DB接続文字列
+      [dbtype]:dbname=[dbname];host=[hostname];port=[port];user=[username];passwd=[password];client_encode=[client_encode];persistent=[persistent]
+  -->
+  <define name="SYL_DB_DSN">pgsql:dbname=aquagarden;host=localhost;port=5432;user=*****;passwd=*****;client_encode=UTF-8;persistent=0</define>
+
+  <!--
+    セッションタイプ
+      default  - 通常セッション
+      db       - DBセッション
+      memcache - Memcacheセッション(PECL memcache >= 2.1.1)
+  -->
+  <define name="SYL_SESSION_TYPE">default</define>
+  <!-- セッション名 -->
+  <define name="SYL_SESSION_NAME">sylsid</define>
+  <!--
+    セッションキャッシュ
+    (なし) | nocache | private | private_no_expire | public
+  -->
+  <define name="SYL_SESSION_CACHE">nocache</define>
+  <!--
+    セッションパラメータ
+    [クッキーパス]:[クッキードメイン]:[SSLのみ]
+  -->
+  <define name="SYL_SESSION_COOKIE_PARAMS">/::0</define>
+  <!-- 
+    セッションIDをリクエストごとに変更するフラグ
+      1 - 変更する
+      0 - 変更しない
+  -->
+  <define name="SYL_SESSION_REGENERATE">0</define>
+  <!--
+    セッションデータ保存パス
+      defaultの場合  - 保存ディレクトリ
+      dbの場合       - DB接続文字列を指定
+      memcacheの場合 - 保存サーバー
+  -->
+  <define name="SYL_SESSION_SAVE_PATH">{SYL_PROJECT_DIR}/var/session</define>
+  <!--
+    セッション保存テーブル
+    ※ セッションタイプがdbの場合のみ指定
+      [テーブル名]:[セッションIDカラム名]:[セッション値カラム名]:[タイムスタンプカラム名]
+  -->
+  <define name="SYL_SESSION_DB_TABLE"></define>
+
+  <!--
+    クッキー有効期間を秒指定。ただし下記単位あり。
+    単位指定：y: 年、m: 月、d: 日、h: 時、i: 分、s: 秒
+    0の場合はセッションクッキー
+  -->
+  <define name="SYL_COOKIE_EXPIRE">1m</define>
+  <!-- クッキーパス -->
+  <define name="SYL_COOKIE_PATH">/</define>
+  <!-- クッキードメイン -->
+  <define name="SYL_COOKIE_DOMAIN"></define>
+  <!-- 
+    クッキーをSSLのみ使用するフラグ
+      1 - 使用する
+      0 - 使用しない
+  -->
+  <define name="SYL_COOKIE_SECURE">0</define>
+
+  <!-- 
+    Contents-Lengthヘッダを出力するフラグ
+      1 - 出力する
+      0 - 出力しない
+  -->
+  <define name="SYL_RESPONSE_LENGTH">0</define>
+  <!-- 
+    使用可能ならHTTPレスポンスにgzip圧縮を使用する
+      1-9 - 使用する（gzip圧縮レベルに対応）
+      0   - 使用しない
+  -->
+  <define name="SYL_RESPONSE_GZIP">0</define>
+  <!-- 
+    セッションを使用しない場合のキャッシュヘッダ
+    (なし) | nocache | private | private_no_expire | public
+  -->
+  <define name="SYL_RESPONSE_CACHE"></define>
+  <!-- 
+    Last-Modifiedキャッシュを使用するフラグ
+      1 - 使用する
+      0 - 使用しない
+  -->
+  <define name="SYL_RESPONSE_LAST_MODIFIED_CACHE">0</define>
+
+  <!-- 認証ユーザークラス -->
+  <define name="SYL_AUTH_USER_CLASS">App.User</define>
+  <!-- 認証対象のPATHINFO -->
+  <define name="SYL_AUTH_PATHINFO"></define>
+  <!-- ログインエラー時リダイレクト先URL -->
+  <define name="SYL_AUTH_LOGIN_ERROR_URL"></define>
+  <!-- セッションエラー時リダイレクト先URL -->
+  <define name="SYL_AUTH_SESSION_ERROR_URL"></define>
+  <!-- 
+    認証タイプ
+      DB           - DB認証 ※接続文字列 SYL_DB_DSN 必須
+      File         - ファイル認証
+      Config       - 設定（defines.xml）で認証
+      Basic:DB     - ベーシック認証（Apacheのみ）& DB
+      Basic:File   - ベーシック認証（Apacheのみ）& File
+      Basic:Config - ベーシック認証（Apacheのみ）& Config
+  -->
+  <define name="SYL_AUTH_TYPE">Config</define>
+  <!-- 
+    認証タイプ
+      DB, Basic:DB         - (テーブル名):(USERNAMEカラム):(パスワードカラム):(その他条件文)
+      File, Basic:File     - (ファイルパス)
+      Config, Basic:Config - (ログインユーザー名):(ログインパスワード);(ログインユーザー名):(ログインパスワード);...
+  -->
+  <define name="SYL_AUTH_TYPE_PARAMETER"></define>
+
+  <!--
+    エラーメッセージの表示を共通システムエラー（固定メッセージ）とするフラグ
+      1 - 通常エラーを表示
+      0 - 共通システムエラーを表示（※SYL_ERROR_MESSAGE定数の内容を表示）
+  -->
+  <define name="SYL_ERROR">1</define>
+  <!--
+    エラー発生時の共通システムエラーメッセージ
+    ※ SYL_ERROR が0の場合のみ有効
+  -->
+  <define name="SYL_ERROR_MESSAGE">システムエラーが発生しました。管理者に連絡してください。</define>
+  <!--
+    エラー発生時にエラーメールを送信するフラグ
+      1 - 送信する
+      0 - 送信しない
+  -->
+  <define name="SYL_ERROR_MAIL">0</define>
+  <!-- 共通エラー画面 -->
+  <define name="SYL_ERROR_FORWARD_FILE_404">{SYL_APP_DIR}/lib/Error404.php</define>
+  <!-- サーバーエラー画面 -->
+  <define name="SYL_ERROR_FORWARD_FILE_500">{SYL_APP_DIR}/lib/Error500.php</define>
+
+  <!-- smartyテンプレートを使用する場合、smartyクラスがあるディレクトリ -->
+  <define name="SYL_SMARTY_DIR"></define>
+  <!-- smartyテンプレートを使用する場合、smartyクラスにセットするプロパティ（「;」区切りで複数可能） -->
+  <define name="SYL_SMARTY_PARAMETER">compile_dir={SYL_PROJECT_DIR}/var/smarty/{SYL_APP_NAME}/templates_c/</define>
+
+  <!-- ファイルアップロードデフォルトディレクトリ（※パスの末尾に「/」をつける） -->
+  <define name="SYL_UPLOAD_DIR">{SYL_PROJECT_DIR}/var/upload/</define>
+
+  <!-- 自動JSインポートパラメータ名 -->
+  <define name="SYL_JS_AUTO_IMPORT_PARAMETER"></define>
+  <!-- 自動JSインポートパラメータ名 -->
+  <define name="SYL_JS_AUTO_IMPORT_SEPARATER">,</define>
+
+</syl-defines>

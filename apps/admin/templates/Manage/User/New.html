@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>ADM管理画面 - <?php echo $title; ?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo $url_dir; ?>/css/adm.css" />
+</head>
+
+<body>
+
+<div id="adm-container">
+  <div id="adm-header">
+    <h1>ADM管理画面 - <?php echo $title; ?> - 新規登録</h1>
+  </div>
+
+  <div id="adm-content">
+    <div id="adm-pankuzu">&gt; <a href="<?php echo $url_lst; ?>">一覧</a></div>
+    <h2>新規登録</h2>
+<?php if ($form['error']) { ?>
+    <div class="alert">
+    <strong>エラーが発生しました</strong><br>
+  <?php foreach ($form['error_message'] as $error_message) { ?>
+      ・&nbsp; <?php echo $error_message; ?><br>
+  <?php } ?>
+    </div>
+<?php } ?>
+    <div>
+      <table class="adm-detail">
+        <form name="form1" method="post" action="<?php echo $url_new; ?>" <?php if ($view_alert && (!$view_confirm || $form['read_only'])) { ?>onSubmit="return confirm('登録します。よろしいですか？');"<?php } ?>>
+        <input type="hidden" name="adm_read_only" value="<?php echo htmlspecialchars($read_only); ?>" />
+<?php foreach ($form['elements'] as $element) { ?>
+  <?php if ($element['cols'] == '0') { ?>
+        <tr>
+          <th><?php echo $element['label']; ?> <?php if ($element['require']) { ?><span style="color: #CC0000">*</font><?php } ?></th>
+          <td><?php echo $element['html']; ?>&nbsp;</td>
+  <?php } else if ($element['cols'] == '1') { ?>
+          <th><?php echo $element['label']; ?> <?php if ($element['require']) { ?><span style="color: #CC0000">*</font><?php } ?></th>
+          <td><?php echo $element['html']; ?>&nbsp;</td>
+        </tr>
+  <?php } else if ($element['cols'] == '2') { ?>
+        <tr>
+          <th><?php echo $element['label']; ?> <?php if ($element['require']) { ?><span style="color: #CC0000">*</font><?php } ?></th>
+          <td colspan="3"><?php echo $element['html']; ?>&nbsp;</td>
+        </tr>
+  <?php } ?>
+<?php } ?>
+        <tr>
+          <td colspan="4" style="text-align: right">
+<?php if ($form['read_only']) { ?><?php // 確認画面 ?>
+            <input type="submit" name="adm_action_exe" value="登録実行">
+            <input type="submit" name="adm_action_prev" value="　戻る　">
+<?php } else if (!$view_confirm) { ?><?php // 入力画面（確認画面無し） ?>
+            <input type="submit" name="adm_action_exe" value="登録実行">
+<?php } else { ?> <?php // 入力画面（確認画面あり） ?>
+            <input type="submit" name="adm_action_next" value="確認画面へ">
+<?php } ?>
+        &nbsp;</td>
+        </tr>
+        </form>
+      </table>
+    </div>
+
+    <div style="padding: 10px; text-align: center;">
+      <a href="<?php echo $url_lst; ?>">一覧に戻る</a>
+    </div>
+  </div> <!-- // end adm-content -->
+
+  <div id="adm-footer">
+    Advanced Data Manager Powered by SyL Framework <?php echo SYL_VERSION; ?>
+  </div>
+</div> <!-- // end adm-container -->
+
+</body>
+</html>
+

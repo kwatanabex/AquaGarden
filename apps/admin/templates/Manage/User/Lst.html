@@ -1,0 +1,28 @@
+<h1><?php echo $title; ?></h1>
+<?php if ($summary) { ?>
+<p class="headline"><?php echo $summary; ?></p>
+<?php } ?>
+<script type="text/javascript" src="<?php echo $ag_script_name; ?>/manage/user/?action=import"></script>
+<script type="text/javascript" src="<?php echo $ag_script_dir; ?>/js/adm.js"></script>
+
+<div>
+  <div id="adm1-search" class="adm-search"></div>
+  <div class="adm-pagelink">
+    <form>
+    <span id="adm1-buttons"></span>&nbsp;&nbsp;<span id="adm1-pagelink1"></span>
+    </form>
+  </div>
+  <div id="adm1-tablelist"></div>
+  <div class="adm-pagelink">
+    <span id="adm1-pagelink2"></span>
+  </div>
+</div>
+
+<br />
+
+<script type="text/javascript">
+<!--
+  var list = new SyL.Adm.List("adm1", '<?php echo $ag_script_name; ?>/manage/user/');
+  list.display();
+//-->
+</script>

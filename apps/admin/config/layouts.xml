@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  レイアウト設定ファイル（layouts.xml）
+
+  layouts.xmlは、個別アプリケーション内で使用するレイアウトを設定します。
+レイアウトは、表示するHTMLを共通で表示する部分（例えば、ヘッダ／フッタ）と
+個別で表示する部分（コンテンツ）に分割することにより、共通表示部分の修正を1ファイルにできたり、
+個別画面追加時は個別部分のみ追加できるようにする機能です。
+
+  ※ 設定値などは下記URLを参照
+  http://syl.jp/document/configuration/layouts.html
+-->
+<syl-layouts xmlns="http://syl.jp/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://syl.jp/schema syl-layouts.xsd">
+
+<layout name="default"
+        file="common/default.html"
+        enable="true">
+  <template name="_MENU_" file="common/menu.html" />
+  <template name="_MAIN_LEFT_" file="common/main_left.html" />
+  <template name="_MAIN_NAVI_" file="common/main_navi.html" />
+  <content name="_MAIN_CONTENTS_" />
+
+</layout>
+
+</syl-layouts>

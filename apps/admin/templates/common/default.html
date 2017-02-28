@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=<?php echo SYL_ENCODE_INTERNAL; ?>" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<link rel="stylesheet" type="text/css" href="<?php echo $ag_script_dir; ?>/css/adm.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $ag_script_dir; ?>/css/admin.css" />
+<title></title>
+</head>
+
+<body>
+
+<div id="header">
+  <div id="header_logo"><a href="<?php echo $ag_script_name; ?>" title="AQUA GARDEN TOPへ"><img src="<?php echo $ag_script_dir; ?>/images/admin_header_logo.gif" width="360" height="40" border="0" alt="AQUA GARDEN" /></a></div>
+  <div id="header_userinfo">
+    <a href="<?php echo $ag_script_dir; ?>/admin.php">TOPへ</a>&nbsp;&nbsp;|&nbsp;
+    <a href="<?php echo $ag_script_dir; ?>/login.php/logout.html">ログアウト</a>
+  </div>
+  <div id="header_end"></div>
+</div>
+
+<div id="menu">
+<?php include_once $_MENU_ ?>
+</div>
+
+<div id="main">
+<!--
+  <div id="main-left">
+<?php include_once $_MAIN_LEFT_ ?>
+  </div>
+-->
+  <div id="main-contents">
+<?php if (count($ag_pankuzu_list) > 0) { ?>
+    <div id="main-contents-navi">
+<a href="<?php echo $ag_script_name; ?>" title="AQUA GARDEN TOPへ">TOP</a>&nbsp;
+  <?php for ($i=0; $i<count($ag_pankuzu_list); $i++) { ?>
+&nbsp;&gt;&nbsp;&nbsp;
+    <?php if ($i == count($ag_pankuzu_list)-1) { ?>
+<?php echo $ag_pankuzu_list[$i]->name; ?>
+    <?php } else { ?>
+<a href="<?php echo $ag_script_name . $ag_pankuzu_list[$i]->link; ?>" title="<?php echo $ag_pankuzu_list[$i]->name; ?>"><?php echo $ag_pankuzu_list[$i]->name; ?></a>
+    <?php } ?>
+  <?php } ?>
+    </div>
+<?php } ?>
+    <div id="main-contents-body">
+<?php include_once $_MAIN_CONTENTS_ ?>
+    </div>
+  </div>
+  <div id="main-end"></div>
+</div>
+
+<div id="footer">
+AQUA GARDEN on SyL Framework <?php echo SYL_VERSION; ?><br />
+Copyright (c) <?php echo date('Y'); ?> k.watanabe All rights reserved. 
+</div>
+
+</body>
+</html>

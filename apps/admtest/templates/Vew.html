@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>ADM管理画面</title>
+<link rel="stylesheet" type="text/css" href="/admapps/css/adm.css" />
+<script type="text/javascript" src="/admapps/admtest.php/User/lst.html?action=import"></script>
+<script type="text/javascript" src="/admapps/js/adm.js"></script>
+</head>
+
+<body>
+
+<h1>関連データ</h1>
+
+<div>
+  <h2><div id="adm1-title">(Now Loading...)</div></h2>
+  <div id="adm1-search" class="adm-search"></div>
+  <div class="adm-pagelink">
+    <form>
+    <span id="adm1-buttons"></span>&nbsp;&nbsp;<span id="adm1-pagelink1"></span>
+    </form>
+  </div>
+  <div id="adm1-tablelist"></div>
+  <div id="adm1-pagelink2" class="adm-pagelink"></div>
+</div>
+
+<br />
+
+<script type="text/javascript">
+<!--
+  var list = new SyL.Adm.List("adm1", '/admapps/admtest.php/User/lst.html');
+  list.display();
+//-->
+</script>
+
+</body>
+</html>
+

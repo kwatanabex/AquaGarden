@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>ADM管理画面 - <?php echo $title; ?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo $url_dir; ?>/css/adm.css" />
+<script type="text/javascript" src="<?php echo $url_dir; ?>/js/adm.js"></script>
+</head>
+
+<body>
+
+<div id="adm-container">
+  <div id="adm-header">
+    <h1>ADM管理画面 - <?php echo $title; ?></h1>
+  </div>
+
+  <div id="adm-content">
+    <?php if ($url_mnu) { ?>
+    <div id="adm-pankuzu">&gt; <a href="<?php echo $url_mnu; ?>">メニューに戻る</a></div>
+    <?php } ?>
+<?php if (count($form['elements']) > 0) { ?>
+    <div id="adm-search" <?php if (!$search_view) { ?>style="display: none"<?php } ?>>
+      <h2>検索</h2>
+      <table class="adm-detail">
+        <form name="form_search">
+  <?php foreach ($form['elements'] as $element) { ?>
+    <?php if ($element['cols'] == '0') { ?>
+        <tr>
+          <th><?php echo $element['label']; ?></th>
+          <td><?php echo $element['html']; ?>&nbsp;</td>
+    <?php } else if ($element['cols'] == '1') { ?>
+          <th><?php echo $element['label']; ?></th>
+          <td><?php echo $element['html']; ?>&nbsp;</td>
+        </tr>
+    <?php } ?>
+  <?php } ?>
+        <tr>
+          <td colspan="4" style="text-align: right"><input type="submit" value="　検索　" /></td>
+        </tr>
+        </form>
+      </table>
+    </div> <!-- // end adm-search -->
+<?php } ?>
+
+    <h2>一覧</h2>
+
+    <div class="adm-pagelink">
+      <form>
+<?php if ($enable_new) { ?>
+        <input type="button" value="&nbsp;&nbsp;新規&nbsp;&nbsp;" onClick="window.location.href='<?php echo $url_new; ?>';" />
+<?php } ?>
+<?php if ($enable_del && (count($links) > 0)) { ?>
+        <input type="button" value="&nbsp;&nbsp;削除&nbsp;&nbsp;" onClick="if (SyL.Adm.Utils.deletesConfirm(document.form_list, '<?php echo $key_name; ?>[]', <?php if ($view_alert) { ?>true<?php } else { ?>false<?php } ?>)) document.form_list.submit();" />
+<?php } ?>
+<?php if ((count($form['elements']) > 0) && (count($links) > 0)) { ?>
+        <input type="button" value="&nbsp;<?php if ($search_view) { ?>検索非表示<?php } else { ?>検索表示<?php } ?>&nbsp;" onClick="SyL.Adm.Utils.changeSearchArea(document.getElementById('adm-search'), this);" />
+<?php } ?>
+        &nbsp;
+<?php if (count($links) > 0) { ?>
+        全 <?php echo $max_page; ?>ページ&nbsp;
+  <?php if ($current_page > 1) { ?>
+        <a href="<?php echo $url_lst; ?>?pg=1&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">&lt;&lt;</a>
+        <a href="<?php echo $url_lst; ?>?pg=<?php echo $current_page - 1; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">&lt;&nbsp;PREV</a>
+  <?php } else { ?>
+        &lt;&nbsp;PREV
+  <?php } ?>
+  <?php foreach ($links as $link) { ?>
+    <?php if ($link == $current_page) { ?>
+        |&nbsp;&nbsp;<b><?php echo $link; ?></b>&nbsp;
+    <?php } else { ?>
+        |&nbsp;&nbsp;<a href="<?php echo $url_lst; ?>?pg=<?php echo $link; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>"><?php echo $link; ?></a>&nbsp;
+    <?php } ?>
+  <?php } ?>
+        |
+  <?php if ($max_page > $current_page) { ?>
+        <a href="<?php echo $url_lst; ?>?pg=<?php echo $current_page + 1; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">NEXT&nbsp;&gt;</a>
+        <a href="<?php echo $url_lst; ?>?pg=<?php echo $max_page; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">&gt;&gt;</a>
+  <?php } else { ?>
+        NEXT&nbsp;&gt;
+  <?php } ?>
+<?php } ?>
+      </form>
+    </div> <!-- // end adm-pagelink -->
+
+    <div>
+<?php if (count($results) > 0) { ?>
+      <table class="adm-list">
+        <form name="form_list" method="post" action="<?php echo $url_del; ?>">
+        <tr>
+<?php if ($primary_link_parameters) { ?>
+  <?php if ($enable_del) { ?>
+          <th class="list_icon"><a href="javascript:void(0);" onclick="SyL.Adm.Utils.deletesAllCheck(document.form_list, '<?php echo $key_name; ?>[]');"><img src="<?php echo $url_dir; ?>/images/icon_del.gif" width="16" height="16" border="0" alt="削除" /></a></th>
+  <?php } ?>
+  <?php if ($enable_upd) { ?>
+          <th class="list_icon"><img src="<?php echo $url_dir; ?>/images/icon_doc.gif" width="16" height="16" border="0" alt="編集" /></th>
+  <?php } ?>
+<?php } ?>
+<?php foreach ($headers as $values) { ?>
+  <?php if (strpos($current_sort, $values['sort'].'.') === 0) { ?>
+          <th><a href="<?php echo $url_lst; ?>?st=<?php echo urlencode($values['sort']) . '.' . $values['order']; ?><?php echo $search_parameter; ?>"><?php echo htmlspecialchars($values['name']); ?></a>
+    <?php if ($values['order'] == 'DESC') { ?>
+            <img src="<?php echo $url_dir; ?>/images/icon_sort_desc.gif" width="11" height="6" border="0" />
+    <?php } else { ?>
+            <img src="<?php echo $url_dir; ?>/images/icon_sort_asc.gif" width="11" height="6" border="0" />
+    <?php } ?>
+          </th>
+  <?php } else { ?>
+          <th><a href="<?php echo $url_lst; ?>?st=<?php echo urlencode($values['sort']) . '.' . $values['order']; ?><?php echo $search_parameter; ?>"><?php echo htmlspecialchars($values['name']); ?></a></th>
+  <?php } ?>
+<?php } ?>
+        </tr>
+<?php foreach ($results as $i => $row) { ?>
+        <tr class=<?php if ($i%2 == 0) { ?>"td1"<?php } else { ?>"td2"<?php } ?>>
+  <?php if ($primary_link_parameters[$i]) { ?>
+    <?php if ($enable_del) { ?>
+          <td class="list_icon"><input type="checkbox" name="<?php echo $key_name; ?>[]" value="<?php echo htmlspecialchars($primary_link_parameters[$i]); ?>" /></td>
+    <?php } ?>
+    <?php if ($enable_upd) { ?>
+          <td class="list_icon"><a href="<?php echo $url_upd; ?>?<?php echo $key_name; ?>=<?php echo urlencode($primary_link_parameters[$i]); ?>"><img src="<?php echo $url_dir; ?>/images/icon_upd.gif" width="16" height="16" border="0" alt="編集" /></a></td>
+    <?php } ?>
+  <?php } ?>
+
+  <?php foreach ($headers as $name => $data) { ?>
+    <?php if ($primary_link_parameters[$i] && $enable_vew && ($name == $primary_name)) { ?>
+          <td><a href="<?php echo $url_vew; ?>?<?php echo $key_name; ?>=<?php echo urlencode($primary_link_parameters[$i]); ?>"><?php echo htmlspecialchars($row[$name]); ?></a></td>
+    <?php } else { ?>
+          <td><?php echo htmlspecialchars($row[$name]); ?></td>
+    <?php } ?>
+  <?php } ?>
+        </tr>
+<?php } ?>
+        </form>
+      </table>
+<?php } else { ?>
+      <div style="padding: 5px 5px 10px 10px;">データがありませんでした</div>
+<?php } ?>
+    </div> <!-- // end adm-list -->
+
+    <div class="adm-pagelink">
+<?php if (count($links) > 0) { ?>
+      全 <?php echo $max_page; ?>ページ &nbsp;
+  <?php if ($current_page > 1) { ?>
+      <a href="<?php echo $url_lst; ?>?pg=1&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">&lt;&lt;</a>
+      <a href="<?php echo $url_lst; ?>?pg=<?php echo $current_page - 1; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">&lt;&nbsp;PREV</a>
+  <?php } else { ?>
+      &lt;&nbsp;PREV
+  <?php } ?>
+  <?php foreach ($links  as $link) { ?>
+    <?php if ($link == $current_page) { ?>
+      |&nbsp;&nbsp;<b><?php echo $link; ?></b>&nbsp;
+    <?php } else { ?>
+      |&nbsp;&nbsp;<a href="<?php echo $url_lst; ?>?pg=<?php echo $link; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>"><?php echo $link; ?></a>&nbsp;
+    <?php } ?>
+  <?php } ?>
+      |
+  <?php if ($max_page > $current_page) { ?>
+      <a href="<?php echo $url_lst; ?>?pg=<?php echo $current_page + 1; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">NEXT&nbsp;&gt;</a>
+      <a href="<?php echo $url_lst; ?>?pg=<?php echo $max_page; ?>&st=<?php echo urlencode($current_sort); ?><?php echo $search_parameter; ?>">&gt;&gt;</a>
+  <?php } else { ?>
+      NEXT&nbsp;&gt;
+  <?php } ?>
+<?php } ?>
+    </div> <!-- // end adm-pagelink -->
+
+    <?php if ($url_mnu) { ?>
+    <div style="text-align:center;"><a href="<?php echo $url_mnu; ?>">メニューに戻る</a></div>
+    <?php } ?>
+  </div> <!-- // end adm-content -->
+
+  <div id="adm-footer">
+  Advanced Data Manager Powered by SyL Framework <?php echo SYL_VERSION; ?>
+  </div>
+</div> <!-- // end adm-container -->
+
+</body>
+</html>

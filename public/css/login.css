@@ -1,0 +1,80 @@
+* {
+  margin: auto;
+  padding: 0;
+}
+
+body {
+  color: #333366;
+  font-size: small;
+}
+
+form {
+  margin:  0;
+}
+
+p {
+line-height: 150%
+}
+
+#header {
+  height: 70px;
+  background: url('../images/login_header_bg.gif') repeat-x;
+}
+
+#main {
+  text-align: center;
+  padding: 20px 0 60px 0;
+}
+
+#main-title {
+  width: 410px;
+  height: 40px;
+  text-align: left;
+  margin-bottom: 20px; 
+}
+
+#main-area {
+  
+}
+
+#footer {
+  text-align: center;
+  background: url('../images/login_footer_bg.gif') repeat-x;
+  padding-top: 12px;
+}
+
+.error_message {
+  width: 380px;
+  height: auto;
+  text-align: left;
+  color: #CC0000;
+  border: solid 1px #CC0000;
+  background-color:  #FFFFCC;
+  margin-bottom: 4px;
+  padding: 10px;
+}
+
+
+table.login {
+  width: 400px;
+  border-collapse: collapse;
+}
+
+table.login th {
+  color:       #FFFFFF;
+  background:  #779CE4;
+  border:     solid 1px #5A6E96;
+  padding:     10px;
+  text-align: right;
+}
+
+table.login td {
+  background: #FFFFFF;
+  border:     solid 1px #5A6E96;
+  padding:    10px;
+  text-align: left;
+}
+
+table.login td.button {
+  text-align: center;
+}

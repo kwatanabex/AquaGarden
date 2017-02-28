@@ -1,0 +1,41 @@
+<div id="main-title">
+<img src="<?= $ag_script_dir ?>/images/login_login_title.gif" width="410" height="40" border="0" alt="login" />
+</div>
+
+<?php if ($form['error']): ?>
+<div class="error_message">
+<img src="<?= $ag_script_dir ?>/images/icons/error.png" width="16" height="16" border="0" alt="error" />&nbsp;&nbsp;
+<span style="color: #CC0000"><?php echo implode('<br>', $form['error_message']); ?></span>
+</div>
+<?php endif; ?>
+
+<div id="main-area">
+<form name="form1" method="post">
+<table class="login">
+<tr>
+<th><?php echo $form['elements']['login_id']['label']; ?></th>
+<td><?php echo $form['elements']['login_id']['html']; ?></td>
+</tr>
+<tr>
+<th><?php echo $form['elements']['login_passwd']['label']; ?></th>
+<td><?php echo $form['elements']['login_passwd']['html']; ?></td>
+</tr>
+<tr>
+<td colspan="2" class="button"><input type="submit" value="　OK　"></td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+<!--
+window.onload = function() {
+  if (document.forms[0].login_id.value == "") {
+    document.forms[0].login_id.focus();
+  } else {
+    document.forms[0].login_passwd.focus();
+  }
+}
+
+//-->
+</script>
+</div>

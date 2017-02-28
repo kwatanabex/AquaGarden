@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, address {
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  color: #3B3B3B;
+  font-size: small;
+  background-color: #F3F7FF;
+}
+
+h1 {
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+
+textarea {
+  width: 98%;
+}
+
+input, textarea, select {
+  font-size: 100%;
+}
+
+#header {
+  width: 100%;
+}
+
+#header #header_title {
+  background-color: #3E5DA1;
+}
+
+
+#container {
+}
+
+#container #menu {
+  width: 190px;
+  float: left;
+  margin-right: 10px;
+}
+
+#container #menu #menu_title {
+  width:  90px;
+  height: 22px;
+  color: #FFFFFF;
+  font-weight: bold;
+  line-height: 1.7em;
+  padding-left: 18px;
+  background: url('../images/menu_title_bg.gif') no-repeat;
+}
+
+#container #menu #menu_directory {
+  border-top:    1px solid #779CE4;
+  border-right:  1px solid #779CE4;
+  border-bottom: 1px solid #779CE4;
+  overflow: auto;
+  padding: 6px;
+  background-color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+#container #main {
+  height: 1%;
+  margin-left: 200px;
+  margin-right: 10px;
+}
+
+#container #main #main_pankuzu {
+  height: 22px;
+  white-space: nowrap;
+}
+
+#container #main #main_contents {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+/* 一覧のページ数とボタン類 */
+#container #main .main_contents_function {
+  border: 1px solid #999999;
+  background-color: #FFFEEC;
+  white-space: nowrap;
+  padding: 6px;
+  margin-bottom: 4px;
+}
+
+#container #main .main_contents_function table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#container #main .main_contents_function table td.pages {
+  text-align: left;
+}
+
+#container #main .main_contents_function table td.buttons {
+  text-align: right;
+}
+
+#container #main .main_contents_list {
+  margin: 4px 0px;
+}
+
+#footer {
+  width : 100%;
+  clear: both;
+  border-top: 1px solid #B2C8E4;
+}
+
+#footer #footer_contents {
+  color:       #6B8DB8;
+  padding:     4px 0px;
+  text-align:  center;
+  line-height: 130%;
+}
+
+
+/* 一覧表示のテーブル */
+table.list {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+table.list th {
+  color: #FFFFFF;
+  background: #779CE4;
+  border:     solid 1px #5A6E96;
+  padding:    6px;
+}
+
+table.list th a:link,
+table.list th a:visited,
+table.list th a:active {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+table.list th a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+table.list td {
+  border:  solid 1px #5A6E96;
+  padding: 6px;
+}
+
+table.list th.list_icon,
+table.list td.list_icon {
+  width: 20px;
+  text-align: center;
+}
+
+table.list tr.td1 td {
+  background-color: #FFFFFF;
+}
+
+table.list tr.td2 td {
+  background-color: #E5EDFD;
+}
+
+
+/* エラーメッセージ */
+.error_message {
+  border: dotted 1px #CC0000;
+  background: left top url("../images/icon_alert.gif") no-repeat #FFFFCC;
+  padding:    5px 5px 5px 48px;
+  margin:     0px 0px 4px 0px;
+  color:      #CC0000;
+  line-height: 130%;
+}
+
+/* 警告メッセージ */
+.alert {
+  border: dotted 1px #CC0000;
+  background: left top url("../images/icon_alert.gif") no-repeat #FFFFCC;
+  padding:    18px 2px 18px 48px;
+  color:      #CC0000;
+
+}
+
+/* 要素ごとのメモ */
+.note {
+  color: #666666;
+  font-size: 83%;
+}
+
+/* メニュー用CSS */
+.dtree img {
+  border-style: none;
+  vertical-align: middle; 
+}
+
+.dtree a.node,
+.dtree a.nodeSel { 
+  padding: 2px;
+}
+
+.dtree .dTreeNode {
+  white-space: nowrap; 
+} 
+
+.dir {
+  background: url('../js/dtree/img/folder.gif') no-repeat;
+  padding: 0px 0px 0px 20px;
+  height: 16px;
+}
+
+.file {
+  background: url('../js/dtree/img/page.gif') no-repeat;
+  padding: 0px 0px 0px 20px;
+  height: 16px;
+}
+

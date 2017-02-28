@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Adm設定ファイル（adms.xml）
+
+  adms.xmlは、複数のAdmアプリケーション管理のためのファイルです。
+
+  ※ 設定値などは下記URLを参照
+  http://syl.jp/document/configuration/adms.html
+-->
+<syl-adms xmlns="http://syl.jp/schema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://syl.jp/schema syl-adms.xsd">
+
+<base path="/admapps/admtest.php" />
+
+<adm class="Adm.Forms.El_user" link="" pathinfo="/User/" enable="true" />
+</syl-adms>

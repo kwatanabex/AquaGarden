@@ -1,0 +1,16 @@
+<ul class="global-menu">
+<?php foreach ($ag_menu_list as $i => $menu_list): ?>
+  <li class="global-menu-row<?php echo ($i%5)+1; ?>">
+    <ul>
+      <?php $cnt = count($menu_list) ?>
+      <?php for ($j=0; $j<$cnt; $j++): ?>
+        <?php if ($menu_list[$j]->is_current_depth): ?>
+          <li class="row"><a href="<?php echo $ag_script_name . $menu_list[$j]->link; ?>" class="current"><?php echo $menu_list[$j]->name; ?></a></li>
+        <?php else: ?>
+          <li class="row"><a href="<?php echo $ag_script_name . $menu_list[$j]->link; ?>"><?php echo $menu_list[$j]->name; ?></a></li>
+        <?php endif; ?>
+      <?php endfor; ?>
+    </ul>
+  </li>
+<?php endforeach; ?>
+</ul>

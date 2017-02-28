@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>ADM管理画面 - <?php echo $title; ?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo $url_dir; ?>/css/adm.css" />
+</head>
+
+<body>
+
+<div id="adm-container">
+  <div id="adm-header">
+    <h1>ADM管理画面 - <?php echo $title; ?> - 完了</h1>
+  </div>
+
+  <div id="adm-content">
+    <div id="adm-pankuzu">&gt; <a href="<?php echo $url_lst; ?>">一覧</a></div>
+<?php if ($adm_action == 'new') { ?>
+    <h2>新規登録</h2>
+<?php } else if ($adm_action == 'upd') { ?>
+    <h2>更新</h2>
+<?php } else if ($adm_action == 'del') { ?>
+    <h2>削除</h2>
+<?php } ?>
+
+    <div style="padding: 20px; text-align: center;">
+<?php if ($adm_action == 'new') { ?>
+      登録が完了しました。
+<?php } else if ($adm_action == 'upd') { ?>
+      更新が完了しました。
+<?php } else if ($adm_action == 'del') { ?>
+      削除が完了しました。
+<?php } ?>
+    </div>
+
+    <div style="padding: 10px; text-align: center;">
+      <a href="<?php echo $url_lst; ?>">一覧に戻る</a>
+    </div>
+  </div> <!-- // end adm-content -->
+
+  <div id="adm-footer">
+    Advanced Data Manager Powered by SyL Framework <?php echo SYL_VERSION; ?>
+  </div>
+</div> <!-- // end adm-container -->
+
+</body>
+</html>
+

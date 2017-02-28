@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  アプリケーション定数設定ファイル（defines.xml）
+
+  defines.xml は、個別アプリケーション内で使用する定数を設定します。
+  プロジェクト内の全アプリケーションの設定を変更する場合は、プロジェクト内の defines.xml を、
+アプリケーション毎に設定を変更する場合は、個別のアプリケーション毎に defines.xml を編集します。
+  プロジェクトと個別アプリケーションの設定キーが同じ場合、個別アプリケーション内の設定が有効（オーバーライド）になります。 
+
+  例）
+  - defines.xml
+    <define name="EXAMPLE">test</define>
+  - プログラム側
+    echo EXAMPLE; // test
+
+  ※ 設定値などは下記URLを参照
+  http://syl.jp/document/configuration/defines.html
+-->
+<syl-defines xmlns="http://syl.jp/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://syl.jp/schema syl-defines.xsd">
+  <!-- 共通エラー画面 -->
+  <define name="SYL_ERROR_FORWARD_FILE_404">redirect::/AquaGarden/login.php/error.html?404_not_found</define>
+  <!-- サーバーエラー画面 -->
+  <define name="SYL_ERROR_FORWARD_FILE_500">{SYL_APP_DIR}/lib/Error500.php</define>
+</syl-defines>
